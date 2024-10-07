@@ -45,6 +45,8 @@ public class Wrappers {
     public void displayMessage() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[contains(text(), 'About YouTube')]")));
+        WebElement aboutElement = driver.findElement(By.xpath("//h1[contains(text(), 'About YouTube')]"));
+        System.out.println(aboutElement.getText());
         List<WebElement> messageElements = driver.findElements(By.xpath("//p[@class='lb-font-display-3 lb-font-color-text-primary']"));
         for (WebElement messageElement : messageElements){
             System.out.println(messageElement.getText());
